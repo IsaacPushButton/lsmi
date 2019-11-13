@@ -80,6 +80,7 @@ snd_seq_t *seq = NULL;
 
 int daemonize = 0;
 
+char defaultdevice[] = "/dev/input/event2";
 char *device = defaultdevice;
 
 /* button mapping */
