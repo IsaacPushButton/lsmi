@@ -80,7 +80,7 @@ snd_seq_t *seq = NULL;
 
 int daemonize = 0;
 
-char defaultdevice[] = "/dev/input/event2";
+char defaultdevice[] = "/dev/input/event0";
 char *device = defaultdevice;
 
 /* button mapping */
@@ -90,10 +90,13 @@ struct map_s {
 	unsigned int channel;
 };
 
-struct map_s map[3] = {
+struct map_s map[5] = {
 	{SND_SEQ_EVENT_CONTROLLER, 64, 0},
 	{SND_SEQ_EVENT_NOTEON, 36, 0},
 	{SND_SEQ_EVENT_NOTEON, 37, 0},
+	{ SND_SEQ_EVENT_NOTEON, 50, 0 },
+	{ SND_SEQ_EVENT_NOTEON, 45, 0 },
+
 };
 
 int fd;
@@ -331,6 +334,8 @@ main ( int argc, char **argv )
 			case BTN_LEFT:		i = 0; break;
 			case BTN_MIDDLE:	i = 1; break;
 			case BTN_RIGHT:		i = 2; break;
+			case REL_WHEEL      i = 3; break;
+			case REL_HWHEEL     i = 4; break;
 				break;
 			default:
 				continue;
