@@ -334,8 +334,8 @@ main ( int argc, char **argv )
 			case BTN_LEFT:		i = 0; break;
 			case BTN_MIDDLE:	i = 1; break;
 			case BTN_RIGHT:		i = 2; break;
-			case REL_WHEEL      i = 3; break;
-			case REL_HWHEEL     i = 4; break;
+			case REL_WHEEL:      i = 3; break;
+			case REL_HWHEEL:     i = 4; break;
 				break;
 			default:
 				continue;
