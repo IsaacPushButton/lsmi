@@ -344,7 +344,7 @@ main ( int argc, char **argv )
 
 		read( fd, &iev, sizeof( iev ) );
 
-		if ( iev.type != EV_KEY && iev.type != EV_REL)
+		if ( iev.type != EV_KEY && iev.type != EV_ABS)
 			continue;
 
 		switch ( iev.code )
