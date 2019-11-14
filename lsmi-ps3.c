@@ -267,7 +267,7 @@ init_mouse ( void )
 	ioctl( fd, EVIOCGBIT( 0, sizeof(evt)), evt );
 
 	if ( ! ( testbit( EV_KEY, evt ) &&
-			 testbit( EV_REL, evt ) ) )
+			 testbit( EV_ABS, evt ) ) )
 	{
 		fprintf( stderr, "'%s' doesn't seem to be a mouse! look in /proc/bus/input/devices to find the name of your mouse's event device\n", device );
 		exit( 1 );
