@@ -4,6 +4,7 @@ lsmi/lsmi-joystick.c
 lsmi/lsmi-keyhack.c
 lsmi/lsmi-monterey.c
 lsmi/lsmi-mouse.c
+lsmi/lsmi-ps3.c
 lsmi/seq.c
 lsmi/seq.h
 lsmi/sig.c
