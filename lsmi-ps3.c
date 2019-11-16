@@ -435,6 +435,6 @@ main ( int argc, char **argv )
 				break;
 		}
 
-		send_event( &ev );
+		//send_event( &ev );
 	}
 }
