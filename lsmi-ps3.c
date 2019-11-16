@@ -90,7 +90,7 @@ struct map_s {
 	unsigned int channel;
 };
 
-struct map_s map[20] = {
+struct map_s map[22] = {
 	//face
 	{SND_SEQ_EVENT_NOTEON, 48, 0},
 	{SND_SEQ_EVENT_NOTEON, 52, 0},
