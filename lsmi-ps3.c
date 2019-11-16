@@ -92,7 +92,7 @@ struct map_s {
 
 struct map_s map[22] = {
 	//face
-	{SND_SEQ_EVENT_CONTROLLER, 48, 0},
+	{ SND_SEQ_EVENT_NOTEON, 48, 0},
 	{SND_SEQ_EVENT_NOTEON, 52, 0},
 	{SND_SEQ_EVENT_NOTEON, 55, 0},
 	{ SND_SEQ_EVENT_NOTEON, 60, 0 },
@@ -112,10 +112,12 @@ struct map_s map[22] = {
 	{ SND_SEQ_EVENT_NOTEON, 62, 0 },
 
 	//sticks xy
+	//l
 	{ SND_SEQ_EVENT_PITCHBEND, 0, 0 } ,
 	{ SND_SEQ_EVENT_PITCHBEND, 1, 0 } ,
-	{ SND_SEQ_EVENT_PITCHBEND, 2, 0 } ,
-	{ SND_SEQ_EVENT_PITCHBEND, 3, 0 },
+	//r	
+	{ SND_SEQ_EVENT_CONTROLLER, 80, 0 } ,
+	{ SND_SEQ_EVENT_CONTROLLER, 81, 0 },
 	
 	//{ SND_SEQ_EVENT_NOTEON, 65, 0 },
 	//{ SND_SEQ_EVENT_NOTEON, 69, 0 },
@@ -409,7 +411,7 @@ main ( int argc, char **argv )
 		switch ( ev.type = map[i].ev_type )
 		{
 		case SND_SEQ_EVENT_CONTROLLER:
-			snd_seq_ev_set_controller(&ev, map[i].channel, 80, iev.value);
+			snd_seq_ev_set_controller(&ev, map[i].channel, map->number, iev.value );
 				break;
 		
 		case SND_SEQ_EVENT_PITCHBEND:
