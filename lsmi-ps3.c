@@ -98,14 +98,12 @@ struct map_s map[20] = {
 	{ SND_SEQ_EVENT_NOTEON, 60, 0 },
 	//dpad
 	{ SND_SEQ_EVENT_NOTEON, 64, 0 },
-
 	{ SND_SEQ_EVENT_NOTEON, 67, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 72, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 76, 0 },
 	//triggers
 	{ SND_SEQ_EVENT_NOTEON, 79, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 84, 0 },
-
 	{ SND_SEQ_EVENT_NOTEON, 50, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 55, 0 },
 
@@ -128,6 +126,10 @@ struct map_s map[20] = {
 	{ SND_SEQ_EVENT_NOTEON, 77, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 81, 0 },
 
+	//start select
+
+	{ SND_SEQ_EVENT_PGMCHANGE, 81, 0 },
+	{ SND_SEQ_EVENT_PGMCHANGE, 81, 0 },
 };
 
 int fd;
@@ -160,7 +162,6 @@ parse_map ( int i, const char *s )
 	{
 		fprintf( stderr, "Controller and note numbers must be between 0 and 127!\n" );
 	}
-	fprintf(stderr,"map ev type is %i", map[i].ev_type);
 	map[i].ev_type = *t == 'c' ?
 		SND_SEQ_EVENT_CONTROLLER : SND_SEQ_EVENT_NOTEON;
 }
@@ -393,6 +394,9 @@ main ( int argc, char **argv )
 			case ABS_Z: i = 18; break;
 			case ABS_RZ: i = 19; break;
 
+			case BTN_SELECT: i = 20; break;
+			case BTN_START: i = 21; break;
+
 
 				break;
 			default:
@@ -418,6 +422,8 @@ main ( int argc, char **argv )
 											map[i].number,
 											iev.value == DOWN ? 127 : 0 );
 				break;
+			case SND_SEQ_EVENT_PGMCHANGE:
+				snd_seq_ev_set_pgmchange(&ev, map[i].channel, iev.value);
 
 			default:
 				fprintf( stderr,
