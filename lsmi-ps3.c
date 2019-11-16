@@ -405,10 +405,11 @@ main ( int argc, char **argv )
 		switch ( ev.type = map[i].ev_type )
 		{
 			case SND_SEQ_EVENT_PITCHBEND:
-
-				snd_seq_ev_set_controller( &ev, map[i].channel,
-												map[i].number,
-												(iev.value*64) - 8192);
+				snd_seq_ev_set_pitchbend(&ev, map[i].channel,
+										(iev.value * 64) - 8192);
+				//snd_seq_ev_set_controller( &ev, map[i].channel,
+				//								map[i].number,
+				//								(iev.value*64) - 8192);
 				break;
 
 			case SND_SEQ_EVENT_NOTEON:
