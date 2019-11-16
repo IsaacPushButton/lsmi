@@ -427,6 +427,9 @@ main ( int argc, char **argv )
 					pgm = pgm + 1;
 					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm);
 				}
+				else {
+					continue;
+				}
 				break;
 			default:
 				fprintf( stderr,
@@ -435,6 +438,6 @@ main ( int argc, char **argv )
 				break;
 		}
 
-		//send_event( &ev );
+		send_event( &ev );
 	}
 }
