@@ -427,7 +427,7 @@ main ( int argc, char **argv )
 
 			default:
 				fprintf( stderr,
-						 "Internal error: unexpected mapping type i% !\n.", ev.type);
+						 "Internal error: unexpected mapping type %i !\n.", ev.type);
 				continue;
 				break;
 		}
