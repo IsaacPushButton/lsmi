@@ -420,7 +420,7 @@ main ( int argc, char **argv )
 
 			default:
 				fprintf( stderr,
-						 "Internal error: invalid mapping!\n" );
+						 "Internal error: invalid mapping!\n. Event type %t", ev.type  );
 				continue;
 				break;
 		}
