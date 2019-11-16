@@ -411,7 +411,7 @@ main ( int argc, char **argv )
 		switch ( ev.type = map[i].ev_type )
 		{
 		case SND_SEQ_EVENT_CONTROLLER:
-			snd_seq_ev_set_controller(&ev, map[i].channel, map.number, iev.value/2 );
+			snd_seq_ev_set_controller(&ev, map[i].channel, map[i].number, iev.value/2 );
 				break;
 		
 		case SND_SEQ_EVENT_PITCHBEND:
