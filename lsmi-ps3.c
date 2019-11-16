@@ -408,7 +408,7 @@ main ( int argc, char **argv )
 
 				snd_seq_ev_set_controller( &ev, map[i].channel,
 												map[i].number,
-												iev.value);
+												iev.value*64);
 				break;
 
 			case SND_SEQ_EVENT_NOTEON:
