@@ -424,7 +424,7 @@ main ( int argc, char **argv )
 				break;
 			case SND_SEQ_EVENT_PGMCHANGE:
 				snd_seq_ev_set_pgmchange(&ev, map[i].channel, iev.value);
-
+				break;
 			default:
 				fprintf( stderr,
 						 "Internal error: unexpected mapping type %i !\n.", ev.type);
