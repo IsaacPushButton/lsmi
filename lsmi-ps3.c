@@ -423,7 +423,7 @@ main ( int argc, char **argv )
 											iev.value == DOWN ? 127 : 0 );
 				break;
 			case SND_SEQ_EVENT_PGMCHANGE:
-				if (iev.value == 0) {
+				if (iev.value == 1) {
 					pgm = pgm + 1;
 					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm);
 				}
