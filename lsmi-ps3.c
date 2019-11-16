@@ -160,7 +160,7 @@ parse_map ( int i, const char *s )
 	{
 		fprintf( stderr, "Controller and note numbers must be between 0 and 127!\n" );
 	}
-
+	printf("map ev type is %i", map[i].ev_type);
 	map[i].ev_type = *t == 'c' ?
 		SND_SEQ_EVENT_CONTROLLER : SND_SEQ_EVENT_NOTEON;
 }
