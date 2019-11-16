@@ -404,7 +404,7 @@ main ( int argc, char **argv )
 
 		switch ( ev.type = map[i].ev_type )
 		{
-			case SND_SEQ_EVENT_CONTROLLER:
+			case SND_SEQ_EVENT_PITCHBEND:
 
 				snd_seq_ev_set_controller( &ev, map[i].channel,
 												map[i].number,
@@ -420,7 +420,7 @@ main ( int argc, char **argv )
 
 			default:
 				fprintf( stderr,
-						 "Internal error: invalid mapping!\n. Event type %t", ev.type  );
+						 "Internal error: invalid mapping!\n.");
 				continue;
 				break;
 		}
