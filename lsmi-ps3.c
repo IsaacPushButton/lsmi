@@ -112,8 +112,8 @@ struct map_s map[20] = {
 	{ SND_SEQ_EVENT_NOTEON, 69, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 71, 0 },
 	{ SND_SEQ_EVENT_NOTEON, 74, 0 },
-	{ SND_SEQ_EVENT_NOTEON, 77, 0 },
-	{ SND_SEQ_EVENT_NOTEON, 81, 0 },
+	{ SND_SEQ_EVENT_PITCHBEND, 77, 0 },
+	{ SND_SEQ_EVENT_PGMCHANGE, 81, 0 },
 
 };
 
@@ -395,7 +395,7 @@ main ( int argc, char **argv )
 
 				snd_seq_ev_set_controller( &ev, map[i].channel,
 												map[i].number,
-												iev.value == DOWN ? 127 : 0 );
+												iev.value);
 				break;
 
 			case SND_SEQ_EVENT_NOTEON:
