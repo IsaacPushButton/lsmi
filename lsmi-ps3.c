@@ -426,7 +426,7 @@ main ( int argc, char **argv )
 				if (iev.value == 1) {
 					pgm = pgm + 1;
 					snd_seq_drain_output(seq);
-					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pg*map[i].number);
+					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm*map[i].number);
 				}
 				else {
 					continue;
