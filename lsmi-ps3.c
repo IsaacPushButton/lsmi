@@ -79,7 +79,7 @@ int port = 0;
 snd_seq_t *seq = NULL;
 
 int daemonize = 0;
-
+int pgm = 0;
 char defaultdevice[] = "/dev/input/event2";
 char *device = defaultdevice;
 
@@ -423,7 +423,10 @@ main ( int argc, char **argv )
 											iev.value == DOWN ? 127 : 0 );
 				break;
 			case SND_SEQ_EVENT_PGMCHANGE:
-				snd_seq_ev_set_pgmchange(&ev, map[i].channel, iev.value);
+				if (iev.value == 0) {
+					pgm++
+					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm);
+				}
 				break;
 			default:
 				fprintf( stderr,
