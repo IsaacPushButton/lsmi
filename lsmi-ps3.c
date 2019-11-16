@@ -425,6 +425,7 @@ main ( int argc, char **argv )
 			case SND_SEQ_EVENT_PGMCHANGE:
 				if (iev.value == 1) {
 					pgm = pgm + 1;
+					snd_seq_drain_output(seq)
 					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm);
 				}
 				else {
