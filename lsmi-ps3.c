@@ -128,8 +128,8 @@ struct map_s map[22] = {
 
 	//start select
 
-	{ SND_SEQ_EVENT_PGMCHANGE, 81, 0 },
-	{ SND_SEQ_EVENT_PGMCHANGE, 81, 0 },
+	{ SND_SEQ_EVENT_PGMCHANGE, 1, 0 },
+	{ SND_SEQ_EVENT_PGMCHANGE, -1, 0 },
 };
 
 int fd;
@@ -426,7 +426,7 @@ main ( int argc, char **argv )
 				if (iev.value == 1) {
 					pgm = pgm + 1;
 					snd_seq_drain_output(seq);
-					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pgm);
+					snd_seq_ev_set_pgmchange(&ev, map[i].channel, pg*map[i].number);
 				}
 				else {
 					continue;
